@@ -1,0 +1,144 @@
+<div class="p-4 m-2 text-center bg-dark text-light">
+<h1 >Add product</h1>
+
+<form [formGroup]="myForm" class="row g-3" (submit)="getData($event)" 
+>
+    <div class="col-md-4">
+      <label for="validationServer01" class="form-label">name</label>
+      <input [(ngModel)]="product.Name" name="name" formControlName="name" type="text" class="form-control" id="validationServer01"
+      [ngClass]="{
+        'is-valid':nameControle?.valid,
+        'is-invalid':!nameControle?.valid && nameControle?.touched
+      }"
+      required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback">
+        <!-- name should be greater than 4 letter -->
+
+        <!-- {{nameControle?.errors |json}} -->
+        <ng-container *ngIf="nameControle?.hasError('required')">
+          Name field is Required
+        </ng-container>
+        <ng-container *ngIf="nameControle?.hasError('minlength')">
+          name must be at least 5 charachter
+        </ng-container>
+        
+]      </div>
+    </div>
+    <div class="col-md-4">
+        <label for="validationServer01" class="form-label">category</label>
+        <input [(ngModel)]="product.Category" name="category" formControlName="category" type="text" class="form-control" id="validationServer01"
+        [ngClass]="{
+          'is-valid':categoryControle?.valid,
+          'is-invalid':!categoryControle?.valid && categoryControle?.touched
+        }"
+        required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          <!-- name should be greater than 4 letter -->
+  
+          <!-- {{nameControle?.errors |json}} -->
+          <ng-container *ngIf="categoryControle?.hasError('required')">
+            Name field is Required
+          </ng-container>
+          <ng-container *ngIf="categoryControle?.hasError('minlength')">
+            name must be at least 4 charachter
+          </ng-container>
+          
+  ]      </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="validationServer02" class="form-label">Price</label>
+        <input [(ngModel)]="product.Price" name="price" formControlName="price" type="number" class="form-control " id="validationServer02" required
+        [ngClass]="{
+          'is-valid':priceControle?.valid,
+          'is-invalid':!priceControle?.valid && priceControle?.touched
+        }"
+        >
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          <ng-container *ngIf="priceControle?.hasError('required')">
+            price is required
+            
+         </ng-container>     
+  
+          <ng-container *ngIf="priceControle?.hasError('min')">
+            price must be more than 100
+          </ng-container>
+          
+        
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <label for="validationServer02" class="form-label">quantity</label>
+        <input [(ngModel)]="product.Quantity" name="quantity" formControlName="quantity" type="number" class="form-control " id="validationServer02" required
+        [ngClass]="{
+          'is-valid':quantityControle?.valid,
+          'is-invalid':!quantityControle?.valid && quantityControle?.touched
+        }"
+        >
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          <ng-container *ngIf="quantityControle?.hasError('required')">
+            quantity is required
+            
+         </ng-container>     
+  
+          <ng-container *ngIf="quantityControle?.hasError('min')">
+            quantity must be at least 5
+          </ng-container>
+          
+        
+        </div>
+      </div>
+      
+    <div class="col-md-4">
+      <label for="validationServer02" class="form-label">discount</label>
+      <input [(ngModel)]="product.Discount" name="discount" formControlName="discount" type="number" class="form-control " id="validationServer02" required
+      [ngClass]="{
+        'is-valid':discountControle?.valid,
+        'is-invalid':!discountControle?.valid && discountControle?.touched
+      }"
+      >
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback">
+        <ng-container *ngIf="discountControle?.hasError('required')">
+            discount is required
+          
+       </ng-container>     
+
+        <ng-container *ngIf="discountControle?.hasError('min')">
+            discount must be more than 10
+        </ng-container>
+        <ng-container *ngIf="discountControle?.hasError('max')">
+            discount must be less than 25
+        </ng-container>
+      
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+        <div class="col-md-4">
+        <label for="validationServer02" class="form-label">In sale </label>
+        <input [(ngModel)]="product.InSale" name="insale" formControlName="discount" type="checkbox" class="form-check-input m-2" id="validationServer02">
+    </div>
+    
+      
+    
+    
+    <div class="col-12">
+      <button [disabled]="!myForm.valid" class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+  </form>
+</div>

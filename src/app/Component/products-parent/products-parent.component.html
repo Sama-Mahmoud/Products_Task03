@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a id="add_prod" (click)="acivate($event)" class="nav-link active" aria-current="page" href="#" [ngClass]="{
+        active: addProductActivate
+      }">Add product</a>
+    </li>
+    <li class="nav-item">
+        <a id="view_prod" (click)="acivate($event)" class="nav-link " aria-current="page" href="#" [ngClass]="{
+            active:viewProductActivate
+        }">view product</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#">Contact Us</a>
+    </li>
+    
+  </ul>
+
+  <ng-container *ngIf="addProductActivate">
+  <app-add-products (myEvent)="GetProduct($event)"></app-add-products>
+</ng-container >
+<!-- <h1>i am in parent :{{product.Name}}</h1> -->
+<ng-container *ngIf="viewProductActivate">
+
+  <app-view-products [productView]="product"></app-view-products></ng-container>

@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <!-- Your form code here -->
+  
+    <!-- Add a new section for displaying the submitted data -->
+    <div class="p-4 m-2 text-center bg-dark text-light">
+      <h1>Submitted Data</h1>
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Discount</th>
+            <th>In Sale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Use Angular *ngFor directive to loop through the submitted data -->
+          <tr *ngFor="let product of productView">
+            <td>{{ product.Name }}</td>
+            <td>{{ product.Category }}</td>
+            <td>{{ product.Price }}</td>
+            <td>{{ product.Quantity }}</td>
+            <td>{{ product.Discount }}</td>
+            <td>{{ product.InSale ? 'Yes' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
